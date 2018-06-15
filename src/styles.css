@@ -1,0 +1,202 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+
+body {
+    background: #303030;
+    margin: 0;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+}
+
+.container {
+    display: flex;
+    box-sizing: border-box;
+    padding: 0 16px;
+    max-width: 1140px;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+    margin: 0 auto;
+    position: relative;
+}
+
+app-navbar .container {
+    width: 1140px;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    min-width: 300px;
+}
+
+.mat-table {
+    overflow: auto;
+    max-height: 500px;
+}
+
+app-dashboard {
+    width: 100%;
+}
+
+app-sidebar .mat-fab .mat-button-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    height: 100%;
+    justify-content: center;
+}
+
+app-add-beer,
+app-beerdetail,
+app-edit-beer {
+    width: 100%;
+}
+
+app-add-beer form .mat-tab-body-content,
+app-edit-beer form .mat-tab-body-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+app-add-beer mat-form-field,
+app-edit-beer mat-form-field {
+    width: 25%;
+}
+
+app-add-beer .mat-form-field-wrapper,
+app-edit-beer .mat-form-field-wrapper {
+    padding: 0 10px 20px 10px;
+}
+
+app-add-beer .mat-form-field-underline,
+app-edit-beer .mat-form-field-underline {
+    width: 90%;
+}
+
+.button-s {
+    width: 100%;
+    text-align: right;
+}
+
+.alert-warn {
+    color: #ef5350;
+    max-width: 1140px;
+    border: 1px solid #ef5350;
+    margin: 30px auto;
+}
+
+.alert-warn p,
+.alert-success p {
+    padding: 0 15px;
+}
+
+.alert-success {
+    color: #76ff03;
+    max-width: 1140px;
+    border: 1px solid #76ff03;
+    margin: 30px auto;
+}
+
+.mat-toolbar.mat-primary {
+    background: #ffa726;
+}
+
+.mat-button.mat-primary, .mat-icon-button.mat-primary, .mat-stroked-button.mat-primary {
+    color: #ffa726;
+}
+
+.mat-fab.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary {
+    background: #ffa726;
+}
+
+.beer-detail {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.beer-item {
+    width: 25%;
+}
+
+.beer-item h3 {
+    color: #ffa726;
+}
+
+app-beers mat-row {
+    cursor: pointer;
+}
+
+app-beers mat-row:hover,
+app-beers mat-row:focus {
+    background: rgba(255, 255, 255, .3);
+}
+
+.mat-focused label {
+    font-size: 18px;
+}
+
+.mat-tab-body.mat-tab-body-active {
+    margin-top: 20px;
+}
+
+@media (max-width: 920px) {
+    app-add-beer mat-form-field,
+    app-edit-beer mat-form-field {
+        width: 33.3333%;
+    }
+
+    .beer-item {
+        width: 33.3333%;
+    }
+
+}
+
+@media (max-width: 768px) {
+    app-add-beer mat-form-field,
+    app-edit-beer mat-form-field {
+        width: 50%;
+    }
+
+    app-add-beer .mat-form-field-label,
+    app-edit-beer .mat-form-field-label {
+        font-size: 18px;
+    }
+
+    .mat-header-row, .mat-row {
+        width: 700px;
+    }
+
+    .beer-item {
+        width: 50%;
+    }
+}
+
+@media (max-width: 540px) {
+    app-add-beer mat-form-field,
+    app-edit-beer mat-form-field {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    .beer-item {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .dashboard-h {
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+    }
+
+    .dashboard-h div:last-of-type {
+        justify-content: center !important;
+    }
+
+}

@@ -1,0 +1,90 @@
+<div fxLayout="row" class="dashboard-h" fxLayoutAlign="space-between center">
+    <div fxFlex="50%" fxFlex.gt-sm="25%">
+        <h1>Detail piva</h1>
+    </div>
+    <div fxFlex="50%" fxFlex.gt-sm="25%" fxLayoutAlign="center">
+        <a mat-raised-button routerLink="/">Späť na Dashboard</a>
+    </div>
+    <div fxFlex="100%" fxFlex.gt-sm="25%" fxLayoutAlign="flex-end">
+        <a routerLink="/beer/edit/{{id}}" mat-raised-button color="accent">Uprav</a>
+        <button (click)="onDeleteClick()" mat-raised-button color="warn">Vymaž</button>
+    </div>
+</div>
+<div class="beer-detail">
+    <div class="beer-item">
+        <h4>Názov piva</h4>
+        <h3>{{beer?.nazovPiva}}</h3>
+    </div>
+    <div class="beer-item">
+        <h4>Hmotnosť sladu</h4>
+        <h3>{{beer?.mSladu}} kg</h3>
+    </div>
+    <div class="beer-item">
+        <h4>Objem hlavného nálevu</h4>
+        <h3>{{beer?.vHlNalevu}} L</h3>
+    </div>
+    <div class="beer-item">
+        <h4>Teplota výstierky</h4>
+        <h3>{{beer?.vystierka}} °C</h3>
+    </div>
+    <div class="beer-item">
+        <h4>Nižšia cukrotvorna teplota (&#946;)</h4>
+        <h3>{{beer?.lowCarbTemp}} °C</h3>
+    </div>
+    <div class="beer-item">
+        <h4>Nižšia cukrotvorna teplota - čas</h4>
+        <h3>{{beer?.lowCarbTemp}} min</h3>
+    </div>
+    <div class="beer-item">
+        <h4>Vyššia cukrotvorna teplota (&#945;)</h4>
+        <h3>{{beer?.highCarbTemp}} °C</h3>
+    </div>
+    <div class="beer-item">
+        <h4>Vyššia cukrotvorna teplota čas</h4>
+        <h3>{{beer?.highCarbTime}} min</h3>
+    </div>
+    <div class="beer-item">
+        <h4>Odrmutovacia teplota</h4>
+        <h3>{{beer?.odRmutTemp}} °C</h3>
+    </div>
+    <div class="beer-item">
+        <h4>Odrmutovacia teplota - čas</h4>
+        <h3>{{beer?.odRmutTime}} min</h3>
+    </div>
+    <div class="beer-item">
+        <h4>Objem predku</h4>
+        <h3>{{beer?.objemPredku}} L</h3>
+    </div>
+    <div class="beer-item">
+        <h4>Objem vysladzovacej vody</h4>
+        <h3>{{beer?.objemVyslVody}} L</h3>
+    </div>
+    <div class="beer-item">
+        <h4>Objem sladiny</h4>
+        <h3>{{beer?.vPredChmel}} L</h3>
+    </div>
+    <div class="beer-item">
+        <h4>Hustota sladiny</h4>
+        <h3>{{beer?.hSliadiny}} SG</h3>
+    </div>
+    <div class="beer-item">
+        <h4>Chmelovar</h4>
+        <h3>{{beer?.chmelovar}} min</h3>
+    </div>
+    <div class="beer-item">
+        <h4>Objem mladiny</h4>
+        <h3>{{beer?.vMladiny}} L</h3>
+    </div>
+    <div class="beer-item">
+        <h4>Hustota mladiny</h4>
+        <h3>{{beer?.hMladiny}} SG</h3>
+    </div>
+    <div class="beer-item">
+        <h4>Končná hustota</h4>
+        <h3>{{beer?.fg}} SG</h3>
+    </div>
+    <div class="beer-item">
+        <h4>Datum</h4>
+        <h3>{{beer?.datum | date}}</h3>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+.example-icon {
+    padding: 0 14px;
+}
+
+.fill-remaining-space-d {
+    flex: 1 1 auto;
+}
+
+mat-toolbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.mobile-btn {
+    margin-left: auto;
+}

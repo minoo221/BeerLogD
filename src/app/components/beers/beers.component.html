@@ -1,0 +1,49 @@
+<div fxLayout="row" class="dashboard-h" fxLayoutAlign="space-between center">
+  <div fxFlex="50%" fxFlex.gt-sm="25%">
+    <h1>Uvarené piva</h1>
+  </div>
+  <div fxFlex="50%" fxFlex.gt-sm="25%" fxLayoutAlign="flex-end">
+    <h3>Počet pív: {{count}}</h3>
+  </div>
+</div>
+<div class="example-container mat-elevation-z8">
+  <div class="example-header">
+  <mat-table #table [dataSource]="beers">
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="nazovPiva">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Názov piva</mat-header-cell>
+      <mat-cell *matCellDef="let beer"> {{beer.nazovPiva}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="hMladiny">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Stupnovitosť</mat-header-cell>
+      <mat-cell *matCellDef="let beer"><span *ngIf="plato">{{round(multyplyi(beer.hMladiny), 1)}}°</span><span *ngIf="!plato">{{beer.hMladiny}}</span> </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="abv">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Alkohol</mat-header-cell>
+      <mat-cell *matCellDef="let beer"> {{round(getAbv(beer.hMladiny, beer.fg), 1)}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="mSladu">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Hmotnosť sladu</mat-header-cell>
+      <mat-cell *matCellDef="let beer"> {{beer.mSladu}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="datum">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Datum varenia</mat-header-cell>
+      <mat-cell *matCellDef="let beer"> {{beer.datum}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="beer/{{row.id}}"></mat-row>
+  </mat-table>
+    <mat-paginator #paginator
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 20]"
+                   [showFirstLastButtons]="true">
+    </mat-paginator>
+    <button *ngIf="plato" (click)="plato = !plato" mat-button color="primary">Change to SG</button>
+    <button *ngIf="!plato" (click)="plato = !plato" mat-button color="primary">Change to Plato</button>
+  </div>
+</div>
+<app-sidebar></app-sidebar>

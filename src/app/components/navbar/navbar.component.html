@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+    <div class="container">
+        <button mat-button routerLink="/"><h2>BeerLog</h2>
+        </button>
+        <!-- This fills the remaining space of the current row -->
+        <span class="fill-remaining-space"></span>
+        <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+            <button mat-button routerLink="/">Domov</button>
+            <button mat-button routerLink="/beer/edit" disabled>Objemy vody</button>
+        </div>
+        <span class="fill-remaining-space-d"></span>
+        <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+            <button mat-button routerLink="/">Logout</button>
+            <button mat-button routerLink="/beer/edit">Register</button>
+        </div>
+       <div class="mobile-btn">
+            <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+                <mat-icon>menu</mat-icon>
+            </button>
+       </div>
+    </div>
+</mat-toolbar>
+<mat-menu x-position="before" #menu="matMenu">
+    <button mat-menu-item routerLink="/products">Products</button>
+    <button mat-menu-item routerLink="/dashboard">Dashboard</button>
+    <!--<button mat-menu-item>Help</button>-->
+</mat-menu>
