@@ -15,7 +15,6 @@ body {
     max-width: 1140px;
     flex-direction: row;
     align-items: center;
-    white-space: nowrap;
     margin: 0 auto;
     position: relative;
 }
@@ -125,6 +124,12 @@ app-edit-beer .mat-form-field-underline {
     color: #ffa726;
 }
 
+.beer-item h3,
+.beer-item h4,
+.beer-item p {
+    padding: 0 10px;
+}
+
 app-beers mat-row {
     cursor: pointer;
 }
@@ -140,6 +145,15 @@ app-beers mat-row:focus {
 
 .mat-tab-body.mat-tab-body-active {
     margin-top: 20px;
+}
+
+#beer-ebc {
+    width: 100px;
+    height: 50px;
+}
+
+h4 .ebc {
+    color: #ffa726;
 }
 
 @media (max-width: 920px) {

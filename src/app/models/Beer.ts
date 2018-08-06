@@ -22,10 +22,16 @@ export interface Beer  {
     fg?: number;
     abv?: number;
     datum?: any;
-    pozOMladiny?: number;
+    pozRmutovanie?: string;
+    pozChmelovar?: string;
+    pozKvasenie?: string;
+    pozChut?: string;
+    ebc?: number;
+    oneStep?: any;
+    /*pozOMladiny?: number;
     predOdpar?: number;
     hRmutu?: number;
     predOSladiny?: number;
     predOHlNalevu?: number;
-    predOPredku?: number;
+    predOPredku?: number;*/
 }

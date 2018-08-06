@@ -12,7 +12,7 @@
 </div>
 <form #beerForm="ngForm" (ngSubmit)="onSubmit(beerForm)">
     <mat-tab-group>
-        <mat-tab label="Poznámky">
+        <mat-tab label="Údaje">
           <mat-form-field>
             <input matInput name="nazovPiva" placeholder="Názov piva" #beerNazovPiva="ngModel" [(ngModel)]="beer.nazovPiva" minlength="3" required>
             <mat-error *ngIf="beerNazovPiva?.errors?.minlength">
@@ -88,26 +88,29 @@
           <mat-form-field>
             <input type="number" name="fg"  matInput placeholder="Konečná hustota" #beerFG="ngModel" [(ngModel)]="beer.fg">
           </mat-form-field>
+          <mat-form-field>
+            <input type="number" name="ebc"  matInput placeholder="EBC" #beerFG="ngModel" [(ngModel)]="beer.ebc">
+          </mat-form-field>
         </mat-tab>
-        <mat-tab label="Výpočty vody">
+        <mat-tab label="Poznámky">
             <mat-form-field>
-                <input type="number" name="pozOMladiny" matInput placeholder="Požadovaný objem mladiny" #beerPozOMladiny="ngModel" [(ngModel)]="beer.pozOMladiny">
+                <textarea name="pozRmutovanie" matInput placeholder="Poznámka - rmutovanie" matTextareaAutosize matAutosizeMinRows="6"
+                          matAutosizeMaxRows="7" #beerPozRmutovanie="ngModel" [(ngModel)]="beer.pozRmutovanie"></textarea>
             </mat-form-field>
             <mat-form-field>
-                <input type="number" name="predOdpar" matInput placeholder="Predpokladaný odpar" #beerPredOdpar="ngModel" [(ngModel)]="beer.predOdpar">
+                <textarea name="pozChmelovar" matInput placeholder="Poznámka - chmelovar" matTextareaAutosize matAutosizeMinRows="6"
+                          matAutosizeMaxRows="7" #beerPozChmelovar="ngModel" [(ngModel)]="beer.pozChmelovar"></textarea>
             </mat-form-field>
             <mat-form-field>
-                <input type="number" name="hRmutu" matInput placeholder="Hustota rmutu" #beerHRmutu="ngModel" [(ngModel)]="beer.hRmutu">
+                <textarea name="pozKvasenie" matInput placeholder="Poznámka - kvasenie" matTextareaAutosize matAutosizeMinRows="6"
+                          matAutosizeMaxRows="7" #beerPozKvasenie="ngModel" [(ngModel)]="beer.pozKvasenie"></textarea>
             </mat-form-field>
             <mat-form-field>
-                <input type="number" name="predOSladiny" matInput placeholder="Predpokladaný objem sladiny" #beerPredOSladiny="ngModel" [(ngModel)]="beer.predOSladiny" readonly value="{{roundD(sladina(beer.pozOMladiny, beer.predOdpar))}}">
+                <textarea name="pozChut" matInput placeholder="Poznámka - chuťs" matTextareaAutosize matAutosizeMinRows="6"
+                          matAutosizeMaxRows="7" #beerPozChut="ngModel" [(ngModel)]="beer.pozChut"></textarea>
             </mat-form-field>
-            <mat-form-field>
-                <input type="number" name="predOHlNalevu" matInput placeholder="Predpokladaný objem hl. nálevu" #beerPredOHlNalevu="ngModel" [(ngModel)]="beer.predOHlNalevu" [value]="beer.hRmutu * beer.mSladu">
-            </mat-form-field>
-            <mat-form-field>
-                <input id="predok" type="number" name="predOPredku" matInput placeholder="Predpokladaný objem predku" #beerPredOPredku="ngModel" [(ngModel)]="beer.predOHlNalevu">
-            </mat-form-field>
+            <!--<input type="file"  (change)="onFileSelected($event)">
+            <button (click)="onUpload()">Upload</button>-->
         </mat-tab>
     </mat-tab-group>
     <div class="button-s">

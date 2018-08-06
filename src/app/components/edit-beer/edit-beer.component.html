@@ -11,82 +11,109 @@
   </div>
 </div>
 <form #beerForm="ngForm" (ngSubmit)="onSubmit(beerForm)">
-  <mat-form-field>
-    <input matInput name="nazovPiva" placeholder="Názov piva" #beerNazovPiva="ngModel" [(ngModel)]="beer.nazovPiva" minlength="3" required>
-    <mat-error *ngIf="beerNazovPiva?.errors?.minlength">
-      Zadajte aspoň tri znaky
-    </mat-error>
-    <mat-error *ngIf="beerNazovPiva?.errors?.required">
-      Povinné
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <input type="number" name="mSladu" matInput placeholder="Hmotnosť sladu" #beerMSLadu="ngModel" [(ngModel)]="beer.mSladu" required>
-    <mat-error *ngIf="beerMSLadu?.errors?.required">
-      Povinné
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <input type="number" name="vHlNalevu" matInput placeholder="Objem hlavného nálevu" #beerVHlNalevu="ngModel" [(ngModel)]="beer.vHlNalevu" required>
-    <mat-error *ngIf="beerVHlNalevu?.errors?.required">
-      Povinné
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <input type="number" name="vystierka" matInput placeholder="Teplota vystierky" #beerVystierka="ngModel" [(ngModel)]="beer.vystierka" required>
-    <mat-error *ngIf="beerVystierka?.errors?.required">
-      Povinné
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field *ngIf="!oneStep">
-    <input type="number" name="lowCarbTemp" matInput placeholder="Nižšia cukrotvorna teplota (&#946;)" #beerLowCarbTemp="ngModel" [(ngModel)]="beer.lowCarbTemp">
-  </mat-form-field>
-  <mat-form-field *ngIf="!oneStep">
-    <input type="number" name="lowCarbTime" matInput placeholder="Nižšia cukrotvorna teplota - čas" #beerLowCarbTime="ngModel" [(ngModel)]="beer.lowCarbTime">
-  </mat-form-field>
-  <mat-form-field *ngIf="!oneStep">
-    <input type="number" name="highCarbTemp" matInput placeholder="Vyššia cukrotvorna teplota (&#945;)" #beerHighCarbTemp="ngModel" [(ngModel)]="beer.highCarbTemp">
-  </mat-form-field>
-  <mat-form-field *ngIf="!oneStep">
-    <input type="number" name="highCarbTime" matInput placeholder="Vyššia cukrotvorna teplota - čas" #beerHighCarbTime="ngModel" [(ngModel)]="beer.highCarbTime">
-  </mat-form-field>
-  <mat-form-field *ngIf="oneStep">
-    <input type="number" name="oneStepTemp" matInput placeholder="Jednokrokova infuzia teplota" #beerOneStepTemp="ngModel" [(ngModel)]="beer.oneStepTemp">
-  </mat-form-field>
-  <mat-form-field *ngIf="oneStep">
-    <input type="number" name="oneStepTime" matInput placeholder="Jednokrokova infuzia čas" #beerOneStepTime="ngModel" [(ngModel)]="beer.oneStepTime">
-  </mat-form-field>
-  <mat-form-field>
-    <input type="number" name="odRmutTemp" matInput placeholder="Odrmutovacia teplota" #beerOdRmutTemp="ngModel" [(ngModel)]="beer.odRmutTemp">
-  </mat-form-field>
-  <mat-form-field>
-    <input type="number" name="odRmutTime" matInput placeholder="Odrmutovacia teplota - čas" #beerOdRmutTime="ngModel" [(ngModel)]="beer.odRmutTime">
-  </mat-form-field>
-  <mat-form-field>
-    <input type="number" name="objemPredku" matInput placeholder="Objem predku" #beerObjemPredkue="ngModel" [(ngModel)]="beer.objemPredku">
-  </mat-form-field>
-  <mat-form-field>
-    <input type="number" name="objemVyslVody" matInput placeholder="Objem vysladzovacej vody" #beerObjemVyslVody="ngModel" [(ngModel)]="beer.objemVyslVody">
-  </mat-form-field>
-  <mat-form-field>
-    <input type="number" name="vPredChmel" matInput placeholder="Objem sladiny" #beerVPredChmel="ngModel" [(ngModel)]="beer.vPredChmel">
-  </mat-form-field>
-  <mat-form-field>
-    <input type="number" name="hSliadiny" matInput placeholder="Hustota sladiny (SG)" #beerHSliadiny="ngModel" [(ngModel)]="beer.hSliadiny">
-  </mat-form-field>
-  <mat-form-field>
-    <input type="number" name="chmelovar" matInput placeholder="Chmelovar (min)" #beerChmelovar="ngModel" [(ngModel)]="beer.chmelovar">
-  </mat-form-field>
-  <mat-form-field>
-    <input type="number" name="vMladiny" matInput placeholder="Objem mladiny (L)" #beerVMladiny="ngModel" [(ngModel)]="beer.vMladiny">
-  </mat-form-field>
-  <mat-form-field>
-    <input type="number" name="hMladiny" matInput placeholder="Hustota mladiny (SG)" #beerHMladiny="ngModel" [(ngModel)]="beer.hMladiny">
-  </mat-form-field>
-  <mat-form-field>
-    <input type="number" name="fg"  matInput placeholder="Konečná hustota" #beerFG="ngModel" [(ngModel)]="beer.fg">
-  </mat-form-field>
-  <div class="button-s">
-    <button mat-raised-button color="primary" type="submit">Ulož</button>
-  </div>
+  <mat-tab-group>
+    <mat-tab label="Údaje">
+      <mat-form-field>
+        <input matInput name="nazovPiva" placeholder="Názov piva" #beerNazovPiva="ngModel" [(ngModel)]="beer.nazovPiva" minlength="3" required>
+        <mat-error *ngIf="beerNazovPiva?.errors?.minlength">
+          Zadajte aspoň tri znaky
+        </mat-error>
+        <mat-error *ngIf="beerNazovPiva?.errors?.required">
+          Povinné
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" name="mSladu" matInput placeholder="Hmotnosť sladu" #beerMSLadu="ngModel" [(ngModel)]="beer.mSladu" required>
+        <mat-error *ngIf="beerMSLadu?.errors?.required">
+          Povinné
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" name="vHlNalevu" matInput placeholder="Objem hlavného nálevu" #beerVHlNalevu="ngModel" [(ngModel)]="beer.vHlNalevu" required>
+        <mat-error *ngIf="beerVHlNalevu?.errors?.required">
+          Povinné
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" name="vystierka" matInput placeholder="Teplota vystierky" #beerVystierka="ngModel" [(ngModel)]="beer.vystierka" required>
+        <mat-error *ngIf="beerVystierka?.errors?.required">
+          Povinné
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field *ngIf="!oneStep">
+        <input type="number" name="lowCarbTemp" matInput placeholder="Nižšia cukrotvorna teplota (&#946;)" #beerLowCarbTemp="ngModel" [(ngModel)]="beer.lowCarbTemp">
+      </mat-form-field>
+      <mat-form-field *ngIf="!oneStep">
+        <input type="number" name="lowCarbTime" matInput placeholder="Nižšia cukrotvorna teplota - čas" #beerLowCarbTime="ngModel" [(ngModel)]="beer.lowCarbTime">
+      </mat-form-field>
+      <mat-form-field *ngIf="!oneStep">
+        <input type="number" name="highCarbTemp" matInput placeholder="Vyššia cukrotvorna teplota (&#945;)" #beerHighCarbTemp="ngModel" [(ngModel)]="beer.highCarbTemp">
+      </mat-form-field>
+      <mat-form-field *ngIf="!oneStep">
+        <input type="number" name="highCarbTime" matInput placeholder="Vyššia cukrotvorna teplota - čas" #beerHighCarbTime="ngModel" [(ngModel)]="beer.highCarbTime">
+      </mat-form-field>
+      <mat-form-field *ngIf="oneStep">
+        <input type="number" name="oneStepTemp" matInput placeholder="Jednokrokova infuzia teplota" #beerOneStepTemp="ngModel" [(ngModel)]="beer.oneStepTemp">
+      </mat-form-field>
+      <mat-form-field *ngIf="oneStep">
+        <input type="number" name="oneStepTime" matInput placeholder="Jednokrokova infuzia čas" #beerOneStepTime="ngModel" [(ngModel)]="beer.oneStepTime">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" name="odRmutTemp" matInput placeholder="Odrmutovacia teplota" #beerOdRmutTemp="ngModel" [(ngModel)]="beer.odRmutTemp">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" name="odRmutTime" matInput placeholder="Odrmutovacia teplota - čas" #beerOdRmutTime="ngModel" [(ngModel)]="beer.odRmutTime">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" name="objemPredku" matInput placeholder="Objem predku" #beerObjemPredkue="ngModel" [(ngModel)]="beer.objemPredku">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" name="objemVyslVody" matInput placeholder="Objem vysladzovacej vody" #beerObjemVyslVody="ngModel" [(ngModel)]="beer.objemVyslVody">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" name="vPredChmel" matInput placeholder="Objem sladiny" #beerVPredChmel="ngModel" [(ngModel)]="beer.vPredChmel">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" name="hSliadiny" matInput placeholder="Hustota sladiny (SG)" #beerHSliadiny="ngModel" [(ngModel)]="beer.hSliadiny">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" name="chmelovar" matInput placeholder="Chmelovar (min)" #beerChmelovar="ngModel" [(ngModel)]="beer.chmelovar">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" name="vMladiny" matInput placeholder="Objem mladiny (L)" #beerVMladiny="ngModel" [(ngModel)]="beer.vMladiny">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" name="hMladiny" matInput placeholder="Hustota mladiny (SG)" #beerHMladiny="ngModel" [(ngModel)]="beer.hMladiny">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" name="fg"  matInput placeholder="Konečná hustota" #beerFG="ngModel" [(ngModel)]="beer.fg">
+      </mat-form-field>
+        <mat-form-field>
+            <input type="number" name="ebc"  matInput placeholder="EBC" #beerFG="ngModel" [(ngModel)]="beer.ebc">
+        </mat-form-field>
+    </mat-tab>
+      <mat-tab label="Poznámky">
+          <mat-form-field>
+                <textarea name="pozRmutovanie" matInput placeholder="Poznámka - rmutovanie" matTextareaAutosize matAutosizeMinRows="6"
+                          matAutosizeMaxRows="7" #beerPozRmutovanie="ngModel" [(ngModel)]="beer.pozRmutovanie"></textarea>
+          </mat-form-field>
+          <mat-form-field>
+                <textarea name="pozChmelovar" matInput placeholder="Poznámka - chmelovar" matTextareaAutosize matAutosizeMinRows="6"
+                          matAutosizeMaxRows="7" #beerPozChmelovar="ngModel" [(ngModel)]="beer.pozChmelovar"></textarea>
+          </mat-form-field>
+          <mat-form-field>
+                <textarea name="pozKvasenie" matInput placeholder="Poznámka - kvasenie" matTextareaAutosize matAutosizeMinRows="6"
+                          matAutosizeMaxRows="7" #beerPozKvasenie="ngModel" [(ngModel)]="beer.pozKvasenie"></textarea>
+          </mat-form-field>
+          <mat-form-field>
+                <textarea name="pozChut" matInput placeholder="Poznámka - kvasenie" matTextareaAutosize matAutosizeMinRows="6"
+                          matAutosizeMaxRows="7" #beerPozChut="ngModel" [(ngModel)]="beer.pozChut"></textarea>
+          </mat-form-field>
+          <!--<input type="file"  (change)="onFileSelected($event)">
+          <button (click)="onUpload()">Upload</button>-->
+      </mat-tab>
+  </mat-tab-group>
+    <div class="button-s">
+        <button mat-raised-button color="primary" type="submit">Ulož</button>
+    </div>
 </form>

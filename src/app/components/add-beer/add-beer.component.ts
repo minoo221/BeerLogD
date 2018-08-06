@@ -3,6 +3,7 @@ import {Beer} from "../../models/Beer";
 import {FlashMessagesService} from "angular2-flash-messages";
 import {BeerService} from "../../services/beer.service";
 import {Router} from "@angular/router";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-add-beer',
@@ -32,12 +33,18 @@ export class AddBeerComponent implements OnInit {
         vMladiny: null,
         fg: null,
         datum: null,
-        pozOMladiny: null,
+        pozRmutovanie: "",
+        pozChmelovar: "",
+        pozKvasenie: "",
+        pozChut: "",
+        ebc: null,
+        oneStep: false,
+        /*pozOMladiny: null,
         predOdpar: null,
         hRmutu: null,
         predOSladiny: null,
         predOHlNalevu: null,
-        predOPredku: null,
+        predOPredku: null,*/
     };
 
     oneStep: boolean = false;
@@ -46,8 +53,8 @@ export class AddBeerComponent implements OnInit {
 
     constructor (
         private router: Router,
-                private beerService: BeerService,
-                private flashMessage: FlashMessagesService
+        private beerService: BeerService,
+        private flashMessage: FlashMessagesService
     ){
     }
 
@@ -58,7 +65,7 @@ export class AddBeerComponent implements OnInit {
         if (!valid) {
             // Show error
             this.flashMessage.show('Prosím zadajte povinné údaje', {
-                cssClass: 'alert-warn', timeauto: 4000
+                cssClass: 'alert-warn', timeauto: 4000,
             });
         } else {
             // Add new client
@@ -67,12 +74,13 @@ export class AddBeerComponent implements OnInit {
             this.flashMessage.show('Údaje boli uspešne uložené', {
                 cssClass: 'alert-success', timeauto: 4000
             });
+
             // Redirect to dashboars
             this.router.navigate(['/']);
         }
     }
 
-    sladina(mladina, odpar) {
+    /*sladina(mladina, odpar) {
         let division = (1 - (odpar/100));
         return mladina / division;
     }
@@ -85,6 +93,14 @@ export class AddBeerComponent implements OnInit {
     predok(nalev, mSladu) {
         let multiplier = (mSladu * 1.3);
         return nalev - multiplier
-    }
+    }*/
+
+    /*onFileSelected(event) {
+        this.selectedFile = event.target.files[0];
+    }*/
+
+    /*onUpload() {
+        const fd = new FormData();
+    }*/
 
 }

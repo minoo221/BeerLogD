@@ -33,7 +33,12 @@ export class EditBeerComponent implements OnInit {
       chmelovar: null,
       hMladiny: null,
       vMladiny: null,
-      fg: null
+      fg: null,
+      pozRmutovanie: "",
+      pozChmelovar: "",
+      pozKvasenie: "",
+      pozChut: "",
+      oneStep: false
   };
 
   oneStep: boolean = false;
